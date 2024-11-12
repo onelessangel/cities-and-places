@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Map Centered on Bucharest</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEGjhZ8GEW-3Q71u1QiiP_GhMfMbLyLHw&libraries=places"></script>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+        #map {
+            height: 100%;  /* Full height */
+            width: 50%;    /* 50% of the screen width */
+        }
+        .content {
+            width: 50%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Map container -->
+    <div id="map"></div>
+
+    <!-- Content container (on the right side) -->
+    <div class="content">
+        <h1>Welcome to Bucharest</h1>
+        <p>This is a simple page displaying a map centered on Bucharest.</p>
+    </div>
+
+    <script>
+        // Initialize the map
+        function initMap() {
+            const bucharest = { lat: 44.4268, lng: 26.1025 };  // Coordinates for Bucharest, Romania
+            const map = new google.maps.Map(document.getElementById('map'), {
+                center: bucharest,
+                zoom: 12,
+            });
+
+            const marker = new google.maps.Marker({
+                position: bucharest,
+                map: map,
+                title: 'Bucharest',
+            });
+        }
+
+        // Call the function when the page loads
+        window.onload = initMap;
+    </script>
+
+</body>
+</html>
